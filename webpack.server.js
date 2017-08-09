@@ -7,13 +7,13 @@ const errorOverlayMiddleware = require('react-error-overlay/middleware');
 const Dashboard         = require('webpack-dashboard')
 const DashboardPlugin   = require('webpack-dashboard/plugin')
 
-// const mDashboard = new Dashboard()
-// compiler.apply(new DashboardPlugin(mDashboard.setData))
+const mDashboard = new Dashboard()
+compiler.apply(new DashboardPlugin(mDashboard.setData))
 
 new WebpackDevServer(compiler, {
     publicPath        : webpackConfig.output.publicPath,
     hot               : true,
-    quiet             : false, // MUESTRA LOG EN CONSOLA
+    quiet             : true, // MUESTRA LOG EN CONSOLA
     overlay           : false, // Show error full window
     stats             : {
       colors: true,

@@ -9,22 +9,18 @@ export default class App extends Component {
       contador: 0
     }
     this.handleClic = this.handleClic.bind(this)
-    console.log("constructorsss")
   }
 
   componentDidMount() {
     this.setState({
       contador: 1
     })
-    console.log("componentDidMount")
   }
 
   componentWillMount() {
-    console.log("componentWillMount")
   }
 
   componentWillUnmount() {
-    console.log("componentWillUnmount")
   }
 
   handleClic() {

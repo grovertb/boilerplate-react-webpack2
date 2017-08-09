@@ -5,7 +5,6 @@ import { Link } from 'react-router'
 class Foo extends Component {
   constructor(props) {
     super(props)
-    console.log("FOO", "constructor")
   }
 
   render() {

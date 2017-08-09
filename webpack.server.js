@@ -3,17 +3,17 @@ const webpack           = require('webpack'),
       webpackConfig     = require('./webpack.config'),
       compiler          = webpack(webpackConfig),
       logger            = require('morgan');
-const errorOverlayMiddleware = require('react-error-overlay/middleware');
+// const errorOverlayMiddleware = require('react-error-overlay/middleware');
 const Dashboard         = require('webpack-dashboard')
 const DashboardPlugin   = require('webpack-dashboard/plugin')
 
-const mDashboard = new Dashboard()
-compiler.apply(new DashboardPlugin(mDashboard.setData))
+// const mDashboard = new Dashboard()
+// compiler.apply(new DashboardPlugin(mDashboard.setData))
 
 new WebpackDevServer(compiler, {
     publicPath        : webpackConfig.output.publicPath,
     hot               : true,
-    quiet             : true, // MUESTRA LOG EN CONSOLA
+    quiet             : false, // MUESTRA LOG EN CONSOLA
     overlay           : false, // Show error full window
     stats             : {
       colors: true,
@@ -23,10 +23,10 @@ new WebpackDevServer(compiler, {
     clientLogLevel: "info",
     // Set this if you want to enable gzip compression for assets
     compress: true,
-    setup(app) {
+    // setup(app) {
       // This lets us open files from the runtime error overlay.
-      app.use(errorOverlayMiddleware());
-    }
+      // app.use(errorOverlayMiddleware());
+    // }
   }).listen(3000, 'localhost', err => {
     if (err)
       console.log("err", err)

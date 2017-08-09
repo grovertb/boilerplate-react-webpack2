@@ -32,12 +32,12 @@ const asyncComponent = getComponent => (
 
 export default (
   <Router history={ browserHistory } >
-    <Route path="/" component={asyncComponent(() => import('../components/Base'))} >
-      <IndexRoute component={asyncComponent(() => import('../components/App'))} />
-      <Route path="about" component={asyncComponent(() => import('../components/About'))} />
+    <Route path="/" component={asyncComponent(() => import(/* webpackChunkName: "Base" */ '../components/Base'))} >
+      <IndexRoute component={asyncComponent(() => import(/* webpackChunkName: "App" */ '../components/App'))} />
+      <Route path="about" component={asyncComponent(() => import(/* webpackChunkName: "About" */ '../components/About'))} />
       <Route path="foo" >
-        <IndexRoute component={asyncComponent(() => import('../components/Foo'))} />
-        <Route path="home" component={asyncComponent(() => import('../components/Home'))} />
+        <IndexRoute component={asyncComponent(() => import(/* webpackChunkName: "Foo" */ '../components/Foo'))} />
+        <Route path="home" component={asyncComponent(() => import(/* webpackChunkName: "Home" */ '../components/Home'))} />
       </Route>
     </Route>
   </Router>
